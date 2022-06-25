@@ -30,10 +30,8 @@ Student.prototype.getAverage = function () {
     if (typeof this.marks === 'undefined') {
         return sum;
     }
-    this.marks.forEach(function (mark) {
-       sum += mark;
-    });
-    return sum !== 0 ? sum / this.marks.length : sum;
+    sum = this.marks.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return sum !== 0 ? Math.round(sum / this.marks.length) : sum;
 };
 
 Student.prototype.exclude = function (reason) {
