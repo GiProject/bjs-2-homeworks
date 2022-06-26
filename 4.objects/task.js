@@ -2,7 +2,6 @@ function Student(name, gender, age) {
     this.name = name;
     this.gender = gender;
     this.age = age;
-    return this;
 }
 
 Student.prototype.setSubject = function (subjectName) {
@@ -19,7 +18,7 @@ Student.prototype.addMark = function (mark) {
 
 Student.prototype.addMarks = function (...marks) {
     if (typeof this.marks !== 'undefined') {
-        this.marks = this.marks.concat(marks);
+        this.marks.push(...marks);
     } else {
         this.marks = marks;
     }
